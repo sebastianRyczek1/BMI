@@ -15,10 +15,10 @@ public class Main {
         int userHeight=sc.nextInt();
         while(userHeight>300||userHeight<0){
             System.out.println("Podaj poprawną wzrost");
-            userWeight=sc.nextInt();
+            userHeight=sc.nextInt();
         }
         BMICalculator userData= new BMICalculator(userWeight,userWeight);
-        userData.interpret();
+        System.out.println("Your result is :"+ userData.interpret());
 
     }
 }

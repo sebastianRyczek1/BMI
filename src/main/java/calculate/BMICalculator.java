@@ -32,7 +32,6 @@ public class BMICalculator implements Calculator {
         map.put(25.0,"Overweight-Moderately obese");
         map.put(30.0,"Overweight-Severely Obese");
         value=((TreeMap<Double, String>) map).floorKey(value);
-        System.out.println(map.get(value));
         return map.get(value);
     }
 }
