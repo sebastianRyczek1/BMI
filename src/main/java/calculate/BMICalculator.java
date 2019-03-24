@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public class BMICalculator implements Calculator {
     private int weight;
-    private  int height;
+    private int height;
 
     public BMICalculator(int weight, int height) {
         this.weight = weight;
@@ -17,21 +17,22 @@ public class BMICalculator implements Calculator {
 
     @Override
     public String calculate() {
-        Double BMI =weight/Math.pow(height/100,2);
+        double heightDouble = (double) height / 100;
+        Double BMI = weight / (Math.pow(heightDouble, 2));
         return String.valueOf(BMI);
     }
 
     @Override
     public String interpret() {
-        String valueFromCalculate=calculate();
+        String valueFromCalculate = calculate();
         Double value = Double.parseDouble(valueFromCalculate);
-        Map<Double,String> map = new TreeMap<>();
-        map.put(0.0,"Underweight");
-        map.put(18.5,"Normal Range");
-        map.put(23.0,"Overweight-at risk");
-        map.put(25.0,"Overweight-Moderately obese");
-        map.put(30.0,"Overweight-Severely Obese");
-        value=((TreeMap<Double, String>) map).floorKey(value);
+        Map<Double, String> map = new TreeMap<>();
+        map.put(0.0, "Underweight");
+        map.put(18.5, "Normal Range");
+        map.put(23.0, "Overweight-at risk");
+        map.put(25.0, "Overweight-Moderately obese");
+        map.put(30.0, "Overweight-Severely Obese");
+        value = ((TreeMap<Double, String>) map).floorKey(value);
         return map.get(value);
     }
 }

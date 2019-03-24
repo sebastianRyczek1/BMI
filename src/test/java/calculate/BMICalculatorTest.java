@@ -12,20 +12,19 @@ import static org.junit.Assert.*;
 public class BMICalculatorTest {
 
     @Test
-    @Parameters({"100,100,100.0","50,180,50.0","50,200,12.5"})
-    public void shouldReturnBMI(int w,int h,String result){
-        BMICalculator BMIcal= new BMICalculator(w,h);
-        assertEquals(result,BMIcal.calculate());
+
+    @Parameters({"100,100,100.0", "50,180,15.432098765432098", "50,200,12.5", "69,169,24.158817968558527"})
+    public void shouldReturnBMI(int w, int h, String result) {
+        BMICalculator BMIcal = new BMICalculator(w, h);
+        assertEquals(result, BMIcal.calculate());
     }
 
     @Test
-    @Parameters({"100,100,Overweight-Severely Obese","50,180,Overweight-Severely Obese","50,200,Underweight","80,200,Normal Range","95,200,Overweight-at risk","110,200,Overweight-Moderately obese"})
-    public void shouldReturnBMIInterpret(int w,int h,String result){
-        BMICalculator BMIcal= new BMICalculator(w,h);
-        assertEquals(result,BMIcal.interpret());
+    @Parameters({"100,100,Overweight-Severely Obese", "50,180,Overweight-Severely Obese", "50,200,Underweight", "80,200,Normal Range", "95,200,Overweight-at risk", "110,200,Overweight-Moderately obese"})
+    public void shouldReturnBMIInterpret(int w, int h, String result) {
+        BMICalculator BMIcal = new BMICalculator(w, h);
+        assertEquals(result, BMIcal.interpret());
     }
-
-
 
 
 }
